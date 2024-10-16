@@ -16,7 +16,7 @@ jobs:
         run: docker build . --file Dockerfile --tag todo-front-angular:$(date +%s)
       - name: login to Docker
         run: |
-             docker login -u $Username --password-stdin $Password
+             docker login -u $Username -p $Password
       - name: Push image to Registry
         run: docker push betselot456/todo-front-angular:$(date +%s)
 
