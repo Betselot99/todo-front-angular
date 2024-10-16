@@ -6,19 +6,19 @@ on:
   
 jobs:
     build:
+      env: # Set the secret as an input
+        Username: betselot456 
+        Password: Aftershock
       runs-on: ubuntu-latest
       steps:
       - uses: actions/checkout@v4
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag todo-front-angular:$(date +%s)
       - name: login to Docker
-        env: # Set the secret as an input
-          Username: ${{ env.USERNAME }}
-          Password: ${{env.PASSWORD}}
         run: |
              docker login -u $Username -p $Password
       - name: Push image to Registry
-        run: docker push $DOCKER_IMAGE
+        run: docker push betselot456/todo-front-angular:$(date +%s)
 
     # deploy:
     #     runs-on: ubuntu-latest
