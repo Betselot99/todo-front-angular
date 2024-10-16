@@ -9,12 +9,17 @@ jobs:
       runs-on: ubuntu-latest
       steps:
       - uses: actions/checkout@v4
-      - name: login to Docker
-        run: docker login -u ${{env.USERNAME}}" -p ${{env.PASSWORD}}"
       - name: Build the Docker image
         run: docker build . --file Dockerfile --tag todo-front-angular:$(date +%s)
+      - name: test 
+        run: echo ${{env.USERNAME}} 
+      - name: login to Docker
+        run: docker login -u ${{env.USERNAME}} -p ${{env.PASSWORD}}
       - name: Push image to Registry
         run: docker push $DOCKER_IMAGE
 
-
+    # deploy:
+    #     runs-on: ubuntu-latest
+    #     needs: build
+    #     steps:
 
