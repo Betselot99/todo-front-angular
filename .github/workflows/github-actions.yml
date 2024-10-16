@@ -13,7 +13,7 @@ jobs:
       steps:
       - uses: actions/checkout@v4
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag todo-front-angular:$(date +%s)
+        run: docker build . --file Dockerfile --tag betselot456/todo-front-angular:$(date +%s)
       - name: login to Docker
         run: |
              docker login -u $Username -p $Password
