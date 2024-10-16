@@ -13,12 +13,12 @@ jobs:
       steps:
       - uses: actions/checkout@v4
       - name: Build the Docker image
-        run: docker build . --file Dockerfile --tag betselot456/todo-front-angular:$(date +%s)
+        run: docker build . --file Dockerfile --tag betselot456/todo-front-angular
       - name: login to Docker
         run: |
              docker login -u $Username -p $Password
       - name: Push image to Registry
-        run: docker push betselot456/todo-front-angular:$(date +%s)
+        run: docker push betselot456/todo-front-angular
 
     # deploy:
     #     runs-on: ubuntu-latest
