@@ -11,12 +11,13 @@ RUN npm install -g @angular/cli
 
 COPY . /app
 
-RUN npm run build --prod --outputPath=./dist/out
+RUN npm run build --prod 
+#--outputPath=./dist/out
 
 #stage 2
 FROM nginx:1.17.5
 
-COPY --from=build /app/dist/out/ /usr/share/nginx/html
+COPY --from=build /app/dist /usr/share/nginx/html
 
 EXPOSE 80
 
