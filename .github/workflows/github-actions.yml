@@ -7,8 +7,8 @@ on:
 jobs:
     build:
       env: # Set the secret as an input
-        Username: betselot456 
-        Password: aftershock
+        Username: 123
+        Password: 123
       runs-on: ubuntu-latest
       steps:
       - uses: actions/checkout@v4
